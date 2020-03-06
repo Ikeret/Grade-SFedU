@@ -3,27 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A30E2412E82E0044FA9A /* AppDelegate.swift */; };
 		1895A3112412E82E0044FA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3102412E82E0044FA9A /* SceneDelegate.swift */; };
-		1895A3132412E82E0044FA9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3122412E82E0044FA9A /* ViewController.swift */; };
 		1895A3162412E82E0044FA9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3142412E82E0044FA9A /* Main.storyboard */; };
 		1895A3182412E8340044FA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3172412E8340044FA9A /* Assets.xcassets */; };
 		1895A31B2412E8340044FA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3192412E8340044FA9A /* LaunchScreen.storyboard */; };
+		1895A3232412F99A0044FA9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3222412F99A0044FA9A /* LoginViewController.swift */; };
+		1895A3262412FE300044FA9A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 1895A3252412FE300044FA9A /* SwiftSoup */; };
+		1895A328241301160044FA9A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A327241301160044FA9A /* LoginManager.swift */; };
+		1895A32B241304B40044FA9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1895A32A241304B40044FA9A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1895A30B2412E82E0044FA9A /* Grade SFedU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grade SFedU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895A30E2412E82E0044FA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895A3102412E82E0044FA9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1895A3122412E82E0044FA9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1895A3152412E82E0044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1895A3172412E8340044FA9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1895A31A2412E8340044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1895A31C2412E8340044FA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1895A3222412F99A0044FA9A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1895A327241301160044FA9A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1895A3262412FE300044FA9A /* SwiftSoup in Frameworks */,
+				1895A32B241304B40044FA9A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +62,10 @@
 		1895A30D2412E82E0044FA9A /* Grade SFedU */ = {
 			isa = PBXGroup;
 			children = (
+				1895A3222412F99A0044FA9A /* LoginViewController.swift */,
+				1895A327241301160044FA9A /* LoginManager.swift */,
 				1895A30E2412E82E0044FA9A /* AppDelegate.swift */,
 				1895A3102412E82E0044FA9A /* SceneDelegate.swift */,
-				1895A3122412E82E0044FA9A /* ViewController.swift */,
 				1895A3142412E82E0044FA9A /* Main.storyboard */,
 				1895A3172412E8340044FA9A /* Assets.xcassets */,
 				1895A3192412E8340044FA9A /* LaunchScreen.storyboard */,
@@ -83,6 +90,10 @@
 			dependencies = (
 			);
 			name = "Grade SFedU";
+			packageProductDependencies = (
+				1895A3252412FE300044FA9A /* SwiftSoup */,
+				1895A32A241304B40044FA9A /* Alamofire */,
+			);
 			productName = "Grade SFedU";
 			productReference = 1895A30B2412E82E0044FA9A /* Grade SFedU.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,10 @@
 				Base,
 			);
 			mainGroup = 1895A3022412E82E0044FA9A;
+			packageReferences = (
+				1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 1895A30C2412E82E0044FA9A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1895A3132412E82E0044FA9A /* ViewController.swift in Sources */,
+				1895A3232412F99A0044FA9A /* LoginViewController.swift in Sources */,
+				1895A328241301160044FA9A /* LoginManager.swift in Sources */,
 				1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */,
 				1895A3112412E82E0044FA9A /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,6 +356,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+		1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1895A3252412FE300044FA9A /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		1895A32A241304B40044FA9A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1895A3032412E82E0044FA9A /* Project object */;
 }
