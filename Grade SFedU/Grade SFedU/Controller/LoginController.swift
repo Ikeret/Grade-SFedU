@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginController.swift
 //  Grade SFedU
 //
 //  Created by Сергей Коршунов on 07.03.2020.
@@ -8,16 +8,26 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        LoginManager.test()
+//        DownloadController.test()
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func login(_ sender: UIButton) {
-        LoginManager.connect()
+        sender.isEnabled = false
+        LoginManager.connect { response in
+            if response == .success {
+                print("success")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                sender.isEnabled = true
+            }
+        }
     }
 
     /*

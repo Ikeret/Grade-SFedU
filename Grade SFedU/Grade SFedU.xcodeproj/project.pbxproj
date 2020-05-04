@@ -3,31 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A30E2412E82E0044FA9A /* AppDelegate.swift */; };
-		1895A3112412E82E0044FA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3102412E82E0044FA9A /* SceneDelegate.swift */; };
 		1895A3162412E82E0044FA9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3142412E82E0044FA9A /* Main.storyboard */; };
 		1895A3182412E8340044FA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3172412E8340044FA9A /* Assets.xcassets */; };
 		1895A31B2412E8340044FA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3192412E8340044FA9A /* LaunchScreen.storyboard */; };
-		1895A3232412F99A0044FA9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3222412F99A0044FA9A /* LoginViewController.swift */; };
-		1895A3262412FE300044FA9A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 1895A3252412FE300044FA9A /* SwiftSoup */; };
 		1895A328241301160044FA9A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A327241301160044FA9A /* LoginManager.swift */; };
-		1895A32B241304B40044FA9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1895A32A241304B40044FA9A /* Alamofire */; };
+		1895A335241336C50044FA9A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A334241336C50044FA9A /* LoginController.swift */; };
+		1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3392417DB730044FA9A /* SubjectsController.swift */; };
+		18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A23DF2245F9D0A001A5B0E /* DataManager.swift */; };
+		18B37D01241CC55700587FEB /* DownloadContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B37D00241CC55700587FEB /* DownloadContoller.swift */; };
+		618C49A2B659F01A2A425715 /* Pods_Grade_SFedU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1895A30B2412E82E0044FA9A /* Grade SFedU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grade SFedU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895A30E2412E82E0044FA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1895A3102412E82E0044FA9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1895A3152412E82E0044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1895A3172412E8340044FA9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1895A31A2412E8340044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1895A31C2412E8340044FA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1895A3222412F99A0044FA9A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1895A327241301160044FA9A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		1895A334241336C50044FA9A /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1895A3392417DB730044FA9A /* SubjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
+		18A23DF2245F9D0A001A5B0E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		18B37D00241CC55700587FEB /* DownloadContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadContoller.swift; sourceTree = "<group>"; };
+		44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.debug.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.debug.xcconfig"; sourceTree = "<group>"; };
+		96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.release.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.release.xcconfig"; sourceTree = "<group>"; };
+		DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grade_SFedU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1895A3262412FE300044FA9A /* SwiftSoup in Frameworks */,
-				1895A32B241304B40044FA9A /* Alamofire in Frameworks */,
+				618C49A2B659F01A2A425715 /* Pods_Grade_SFedU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,8 @@
 			children = (
 				1895A30D2412E82E0044FA9A /* Grade SFedU */,
 				1895A30C2412E82E0044FA9A /* Products */,
+				A3165673230FFB43FD9C9167 /* Pods */,
+				2576EF6C3187873E171A47E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,16 +69,59 @@
 		1895A30D2412E82E0044FA9A /* Grade SFedU */ = {
 			isa = PBXGroup;
 			children = (
-				1895A3222412F99A0044FA9A /* LoginViewController.swift */,
-				1895A327241301160044FA9A /* LoginManager.swift */,
-				1895A30E2412E82E0044FA9A /* AppDelegate.swift */,
-				1895A3102412E82E0044FA9A /* SceneDelegate.swift */,
+				18A23DF1245F9CE6001A5B0E /* Model */,
+				18A23DF5245F9D2B001A5B0E /* View */,
+				18A23DF4245F9D12001A5B0E /* Controller */,
 				1895A3142412E82E0044FA9A /* Main.storyboard */,
+				1895A30E2412E82E0044FA9A /* AppDelegate.swift */,
 				1895A3172412E8340044FA9A /* Assets.xcassets */,
 				1895A3192412E8340044FA9A /* LaunchScreen.storyboard */,
 				1895A31C2412E8340044FA9A /* Info.plist */,
 			);
 			path = "Grade SFedU";
+			sourceTree = "<group>";
+		};
+		18A23DF1245F9CE6001A5B0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1895A327241301160044FA9A /* LoginManager.swift */,
+				18A23DF2245F9D0A001A5B0E /* DataManager.swift */,
+				18B37D00241CC55700587FEB /* DownloadContoller.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18A23DF4245F9D12001A5B0E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1895A334241336C50044FA9A /* LoginController.swift */,
+				1895A3392417DB730044FA9A /* SubjectsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18A23DF5245F9D2B001A5B0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2576EF6C3187873E171A47E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3165673230FFB43FD9C9167 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */,
+				96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1895A31F2412E8340044FA9A /* Build configuration list for PBXNativeTarget "Grade SFedU" */;
 			buildPhases = (
+				CD7D1FF858245BCE011FE2D1 /* [CP] Check Pods Manifest.lock */,
 				1895A3072412E82E0044FA9A /* Sources */,
 				1895A3082412E82E0044FA9A /* Frameworks */,
 				1895A3092412E82E0044FA9A /* Resources */,
+				DC8430865A0EB9FCC1F75DFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -91,8 +143,6 @@
 			);
 			name = "Grade SFedU";
 			packageProductDependencies = (
-				1895A3252412FE300044FA9A /* SwiftSoup */,
-				1895A32A241304B40044FA9A /* Alamofire */,
 			);
 			productName = "Grade SFedU";
 			productReference = 1895A30B2412E82E0044FA9A /* Grade SFedU.app */;
@@ -123,8 +173,6 @@
 			);
 			mainGroup = 1895A3022412E82E0044FA9A;
 			packageReferences = (
-				1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 1895A30C2412E82E0044FA9A /* Products */;
 			projectDirPath = "";
@@ -148,15 +196,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD7D1FF858245BCE011FE2D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Grade SFedU-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC8430865A0EB9FCC1F75DFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1895A3072412E82E0044FA9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1895A3232412F99A0044FA9A /* LoginViewController.swift in Sources */,
+				18B37D01241CC55700587FEB /* DownloadContoller.swift in Sources */,
+				1895A335241336C50044FA9A /* LoginController.swift in Sources */,
 				1895A328241301160044FA9A /* LoginManager.swift in Sources */,
+				18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */,
 				1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */,
-				1895A3112412E82E0044FA9A /* SceneDelegate.swift in Sources */,
+				1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +390,7 @@
 		};
 		1895A3202412E8340044FA9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -317,6 +410,7 @@
 		};
 		1895A3212412E8340044FA9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,38 +450,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.3.0;
-			};
-		};
-		1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1895A3252412FE300044FA9A /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1895A3242412FE300044FA9A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-		1895A32A241304B40044FA9A /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1895A329241304B40044FA9A /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1895A3032412E82E0044FA9A /* Project object */;
 }
