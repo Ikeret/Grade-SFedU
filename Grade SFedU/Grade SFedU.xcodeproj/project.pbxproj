@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181CA36824ACC9DA0097B349 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CA36624ACC9DA0097B349 /* SubjectCell.swift */; };
+		181CA36924ACC9DA0097B349 /* SubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181CA36724ACC9DA0097B349 /* SubjectCell.xib */; };
+		181CA36B24ACCDB60097B349 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CA36A24ACCDB60097B349 /* Utilities.swift */; };
+		183BB79224AD302800F7C0F1 /* DetailSubjectContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BB79124AD302800F7C0F1 /* DetailSubjectContoller.swift */; };
+		183BB79524AD331000F7C0F1 /* SubmoduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BB79324AD331000F7C0F1 /* SubmoduleCell.swift */; };
+		183BB79624AD331000F7C0F1 /* SubmoduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */; };
 		1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A30E2412E82E0044FA9A /* AppDelegate.swift */; };
 		1895A3162412E82E0044FA9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3142412E82E0044FA9A /* Main.storyboard */; };
 		1895A3182412E8340044FA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3172412E8340044FA9A /* Assets.xcassets */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181CA36624ACC9DA0097B349 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		181CA36724ACC9DA0097B349 /* SubjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectCell.xib; sourceTree = "<group>"; };
+		181CA36A24ACCDB60097B349 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		183BB79124AD302800F7C0F1 /* DetailSubjectContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubjectContoller.swift; sourceTree = "<group>"; };
+		183BB79324AD331000F7C0F1 /* SubmoduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmoduleCell.swift; sourceTree = "<group>"; };
+		183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmoduleCell.xib; sourceTree = "<group>"; };
 		1895A30B2412E82E0044FA9A /* Grade SFedU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grade SFedU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895A30E2412E82E0044FA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895A3152412E82E0044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +60,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181CA36524ACC98D0097B349 /* SubjectCell */ = {
+			isa = PBXGroup;
+			children = (
+				181CA36624ACC9DA0097B349 /* SubjectCell.swift */,
+				181CA36724ACC9DA0097B349 /* SubjectCell.xib */,
+			);
+			path = SubjectCell;
+			sourceTree = "<group>";
+		};
+		183BB79724AD331700F7C0F1 /* SubmoduleCell */ = {
+			isa = PBXGroup;
+			children = (
+				183BB79324AD331000F7C0F1 /* SubmoduleCell.swift */,
+				183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */,
+			);
+			path = SubmoduleCell;
+			sourceTree = "<group>";
+		};
 		1895A3022412E82E0044FA9A = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +107,7 @@
 				1895A3172412E8340044FA9A /* Assets.xcassets */,
 				1895A3192412E8340044FA9A /* LaunchScreen.storyboard */,
 				1895A31C2412E8340044FA9A /* Info.plist */,
+				181CA36A24ACCDB60097B349 /* Utilities.swift */,
 			);
 			path = "Grade SFedU";
 			sourceTree = "<group>";
@@ -96,6 +127,7 @@
 			children = (
 				1895A334241336C50044FA9A /* LoginController.swift */,
 				1895A3392417DB730044FA9A /* SubjectsController.swift */,
+				183BB79124AD302800F7C0F1 /* DetailSubjectContoller.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -103,6 +135,8 @@
 		18A23DF5245F9D2B001A5B0E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				181CA36524ACC98D0097B349 /* SubjectCell */,
+				183BB79724AD331700F7C0F1 /* SubmoduleCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183BB79624AD331000F7C0F1 /* SubmoduleCell.xib in Resources */,
+				181CA36924ACC9DA0097B349 /* SubjectCell.xib in Resources */,
 				1895A31B2412E8340044FA9A /* LaunchScreen.storyboard in Resources */,
 				1895A3182412E8340044FA9A /* Assets.xcassets in Resources */,
 				1895A3162412E82E0044FA9A /* Main.storyboard in Resources */,
@@ -245,9 +281,13 @@
 			files = (
 				18B37D01241CC55700587FEB /* DownloadContoller.swift in Sources */,
 				1895A335241336C50044FA9A /* LoginController.swift in Sources */,
+				183BB79224AD302800F7C0F1 /* DetailSubjectContoller.swift in Sources */,
 				1895A328241301160044FA9A /* LoginManager.swift in Sources */,
+				181CA36824ACC9DA0097B349 /* SubjectCell.swift in Sources */,
 				18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */,
+				183BB79524AD331000F7C0F1 /* SubmoduleCell.swift in Sources */,
 				1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */,
+				181CA36B24ACCDB60097B349 /* Utilities.swift in Sources */,
 				1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "sergeykorshunov.Grade-SFedU";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -424,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "sergeykorshunov.Grade-SFedU";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

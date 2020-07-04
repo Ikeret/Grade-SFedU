@@ -7,37 +7,57 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class LoginController: UIViewController {
 
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    let activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        LoginManager.test()
-//        DownloadController.test()
-
-        // Do any additional setup after loading the view.
+        loginButton.addSubview(activityIndicator)
+        activityIndicator.center.x = view.center.x + 20
+        activityIndicator.center.y = loginButton.frame.height / 2
+        activityIndicator.hidesWhenStopped = true
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        let user = DataManager.getUser()
+        loginTextField.text = user.login
     }
     
-    @IBAction func login(_ sender: UIButton) {
-        sender.isEnabled = false
+    @IBAction func login(_ sender: Any?) {
+        activityIndicator.startAnimating()
+        loginButton.isEnabled = false
+        
+        DataManager.setUser(login: loginTextField.text, password: passwordTextField.text)
+        
         LoginManager.connect { response in
             if response == .success {
-                print("success")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.dismiss(animated: true, completion: nil)
             } else {
-                sender.isEnabled = true
+                let banner = FloatingNotificationBanner(title: "Ошибка", subtitle: response.rawValue, style: .danger)
+                banner.haptic = .heavy
+                banner.show(queuePosition: .front, bannerPosition: .top, cornerRadius: 10, shadowBlurRadius: 15)
+                self.loginButton.isEnabled = true
+                self.activityIndicator.stopAnimating()
             }
         }
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LoginController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            login(nil)
+        }
+        return true
     }
-    */
-
 }
