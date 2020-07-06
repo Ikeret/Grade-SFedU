@@ -20,7 +20,7 @@ class NetworkManager {
         case unknow = "Неизвестная ошибка. Повторите попытку позже."
     }
     
-    public static func connect(completionHandler: @escaping (LoginStatus) -> Void) {
+    static func connect(completionHandler: @escaping (LoginStatus) -> Void) {
         guard NetworkReachabilityManager()?.isReachable ?? false else {
             completionHandler(.noNetworkConnection)
             return
@@ -129,19 +129,19 @@ class NetworkManager {
         }
     }
     
-    public static func setSemestr(id: String, completionHandler: @escaping () -> Void) {
-        AF.request(basicURL + "/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { _ in
+    static func setSemestr(id: String, completionHandler: @escaping () -> Void) {
+        AF.request("https://grade.sfedu.ru/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { _ in
             completionHandler()
         }
     }
     
-    public static func signOut() {
+    static func signOut() {
         AF.request(basicURL + "/sign/out").response { _ in
             
         }
     }
     
-    public static func loadDiscipline(discipline: String, completionHandler: @escaping ([DataManager.module]) -> Void) {
+    static func loadDiscipline(discipline: String, completionHandler: @escaping ([DataManager.module]) -> Void) {
 
         AF.request(basicURL + discipline).response { response in
             

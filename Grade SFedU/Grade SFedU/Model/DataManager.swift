@@ -74,7 +74,7 @@ class DataManager {
     static let markC = UIColor(named: "markC")!
     static let markD = UIColor(named: "markD")!
     
-    public static func getCircleConfig(subject: DataManager.subject) -> (circleColor: UIColor, labelColor: UIColor) {
+    static func getCircleConfig(subject: DataManager.subject) -> (circleColor: UIColor, labelColor: UIColor) {
         guard subject.maxRate != "0" else {
             return (.systemGray, .white)
         }
