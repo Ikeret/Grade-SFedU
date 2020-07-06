@@ -34,7 +34,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8n-l3-oT7">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8n-l3-oT7">
                                         <rect key="frame" x="0.0" y="110" width="374" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -90,7 +90,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Дисциплины" id="ftb-lz-wzJ">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="gWH-9i-flm"/>
-                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="5qP-8M-UEt"/>
+                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="5qP-8M-UEt">
+                            <connections>
+                                <action selector="settingsAction:" destination="Xvq-Mx-5Bq" id="q3h-WY-BcR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="tjw-yN-WGS">
                             <connections>
                                 <action selector="chooseSemestr:" destination="Xvq-Mx-5Bq" id="OH4-fS-SJr"/>
@@ -98,6 +102,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="semestrsBarButton" destination="tjw-yN-WGS" id="Gou-iB-XQ0"/>
+                        <outlet property="settingsBarButton" destination="5qP-8M-UEt" id="MZ3-v7-q3L"/>
                         <segue destination="kBx-DO-jKB" kind="show" identifier="detailSeg" id="rdZ-7u-XTg"/>
                     </connections>
                 </tableViewController>

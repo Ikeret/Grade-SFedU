@@ -29,6 +29,22 @@ class LoginController: UIViewController {
         
         let user = DataManager.getUser()
         loginTextField.text = user.login
+        
+        loginTextField.addTarget(self, action: #selector(textFieldStopEditing), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldStopEditing), for: .editingChanged)
+    }
+    
+    @objc func textFieldStopEditing() {
+        guard let login = loginTextField.text, let password = passwordTextField.text else {
+            loginButton.isEnabled = false
+            return
+        }
+            
+        if !login.isEmpty && !password.isEmpty {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
     }
     
     @IBAction func login(_ sender: Any?) {

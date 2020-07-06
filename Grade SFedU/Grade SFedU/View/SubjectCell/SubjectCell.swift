@@ -25,8 +25,8 @@ class SubjectCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(subject: DataManager.subject) {
-        subjectLabel.text = subject.getNormalTitle()
+    func configure(subject: DataManager.subject, showNormalTitle: Bool) {
+        subjectLabel.text = showNormalTitle ? subject.getNormalTitle() : subject.title
         if subject.maxRate == "0" {
             rateLabel.text = "\u{2014}"
         } else {
@@ -36,5 +36,11 @@ class SubjectCell: UITableViewCell {
         let circleConfig = Utilities.getCircleConfig(subject: subject)
         rateCircle.backgroundColor = circleConfig.circleColor
         rateLabel.textColor = circleConfig.labelColor
+        
+        if subject.isHidden() {
+            contentView.alpha = 0.5
+        } else {
+            contentView.alpha = 1.0
+        }
     }
 }

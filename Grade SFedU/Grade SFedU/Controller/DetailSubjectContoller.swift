@@ -16,7 +16,6 @@ class DetailSubjectContoller: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = subject.getNormalTitle()
         
         tableView.register(UINib(nibName: SubmoduleCell.id, bundle: Bundle.main), forCellReuseIdentifier: SubmoduleCell.id)
         refreshControl = UIRefreshControl()

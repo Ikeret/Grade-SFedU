@@ -11,9 +11,22 @@ import NotificationBannerSwift
 
 class SubjectsController: UITableViewController {
     
+    @IBOutlet weak var settingsBarButton: UIBarButtonItem!
+    @IBOutlet weak var semestrsBarButton: UIBarButtonItem!
+    
+    var hideSubjects: Bool {
+        get { !UserDefaults.standard.bool(forKey: "hideSubjects") }
+        set { UserDefaults.standard.set(!newValue, forKey: "hideSubjects") }
+    }
+    
+    var showNormalTitle: Bool {
+        get { !UserDefaults.standard.bool(forKey: "showNormalTitle") }
+        set { UserDefaults.standard.set(!newValue, forKey: "showNormalTitle") }
+    }
+    
     var data: [DataManager.subject] = [] {
         didSet {
-            data.removeAll { $0.isHidden() }
+            if hideSubjects { data.removeAll { $0.isHidden() } }
         }
     }
     
@@ -34,7 +47,8 @@ class SubjectsController: UITableViewController {
             present(loginVC, animated: false, completion: nil)
             return
         }
-        
+        settingsBarButton.isEnabled = false
+        semestrsBarButton.isEnabled = false
         
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
@@ -52,6 +66,33 @@ class SubjectsController: UITableViewController {
         tableView.reloadData()
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(.init(title: "Отмена", style: .cancel, handler: nil))
+
+        var title = "Скрытые предметы: " + (hideSubjects ? "выкл." : "вкл.")
+        alert.addAction(.init(title: title, style: .default, handler: { (action) in
+            self.hideSubjects.toggle()
+            self.data = DataManager.subjects
+            self.tableView.reloadData()
+        }))
+        
+        title = "Свои названия предметов: " + (showNormalTitle ? "вкл." : "выкл.")
+        alert.addAction(.init(title: title, style: .default, handler: { (action) in
+            self.showNormalTitle.toggle()
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(.init(title: "Выйти из аккаунта", style: .destructive, handler: { (action) in
+            DataManager.clearPassword()
+            let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC") as! LoginController
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: true)
+        }))
+        
+        present(alert, animated: true)
+    }
+    
     @IBAction func chooseSemestr(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -64,7 +105,7 @@ class SubjectsController: UITableViewController {
         }
         alert.addAction(.init(title: "Отмена", style: .cancel, handler: nil))
         
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
     
     @objc func refreshData() {
@@ -76,6 +117,8 @@ class SubjectsController: UITableViewController {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
                 self.navigationItem.title = DataManager.currentSemestr
+                self.settingsBarButton.isEnabled = true
+                self.semestrsBarButton.isEnabled = true
             } else if response == .noNetworkConnection {
                 let banner = FloatingNotificationBanner(title: "Ошибка", subtitle: response.rawValue, style: .warning)
                 banner.haptic = .heavy
@@ -104,7 +147,7 @@ class SubjectsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SubjectCell.id) as! SubjectCell
-        cell.configure(subject: data[indexPath.row])
+        cell.configure(subject: data[indexPath.row], showNormalTitle: showNormalTitle)
         
         return cell
     }
@@ -115,20 +158,29 @@ class SubjectsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let subject = data[indexPath.row]
+        
         let renameAction = UIContextualAction(style: .normal, title: nil) { (action, view, handler) in
             handler(true)
             let alert = UIAlertController(title: "Переименовать дисциплину", message: "Введите новое название, которое будет отображаться в приложении.", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: { textField in
-                textField.text = self.data[indexPath.row].title
-                textField.clearButtonMode = .whileEditing
-            })
-            alert.addAction(.init(title: "ОК", style: .default, handler: { (action) in
+            alert.addTextField(configurationHandler: nil)
+            
+            alert.addAction(.init(title: "Переименовать", style: .default, handler: { (action) in
                 if let text = alert.textFields?.first?.text {
-                    UserDefaults.standard.set(text, forKey: "rename \(self.data[indexPath.row].title)")
+                    UserDefaults.standard.set(text, forKey: "rename \(subject.title)")
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }))
-            alert.addAction(.init(title: "Отмена", style: .destructive, handler: nil))
+            alert.preferredAction = alert.actions.first
+            
+            if subject.title != subject.getNormalTitle() {
+                alert.addAction(.init(title: "По умолчанию", style: .default, handler: { (action) in
+                    UserDefaults.standard.set(nil, forKey: "rename \(subject.title)")
+                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                }))
+            }
+
+            alert.addAction(.init(title: "Отмена", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
         renameAction.image = UIImage(systemName: "pencil")
@@ -136,13 +188,22 @@ class SubjectsController: UITableViewController {
         
         let hideAction = UIContextualAction(style: .destructive, title: nil) { (action, view, handler) in
             handler(true)
-            UserDefaults.standard.set(true, forKey: "hidden \(self.data[indexPath.row].link)")
-            self.data.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            UserDefaults.standard.set(!subject.isHidden(), forKey: "hidden \(subject.link)")
+            if self.hideSubjects {
+                self.data.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         }
-        hideAction.image = UIImage(systemName: "eye.slash")
+        let imageName = subject.isHidden() ? "eye" : "eye.slash"
+        hideAction.image = UIImage(systemName: imageName)
         
-        return UISwipeActionsConfiguration(actions: [hideAction, renameAction])
+        if showNormalTitle {
+            return UISwipeActionsConfiguration(actions: [hideAction, renameAction])
+        } else {
+            return UISwipeActionsConfiguration(actions: [hideAction])
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -163,7 +224,9 @@ class SubjectsController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSeg" {
             let destinationVC = segue.destination as! DetailSubjectContoller
-            destinationVC.subject = data[sender as! Int]
+            let subject = data[sender as! Int]
+            destinationVC.subject = subject
+            destinationVC.navigationItem.title = showNormalTitle ? subject.getNormalTitle() : subject.title
         }
     }
 }

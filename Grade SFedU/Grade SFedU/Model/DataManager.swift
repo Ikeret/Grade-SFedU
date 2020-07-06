@@ -64,4 +64,8 @@ class DataManager {
         UserDefaults.standard.set(login, forKey: "login")
         UserDefaults.standard.set(password, forKey: "password")
     }
+    
+    static func clearPassword() {
+        UserDefaults.standard.set(nil, forKey: "password")
+    }
 }

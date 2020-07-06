@@ -22,8 +22,36 @@
 		1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3392417DB730044FA9A /* SubjectsController.swift */; };
 		18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A23DF2245F9D0A001A5B0E /* DataManager.swift */; };
 		18B37D01241CC55700587FEB /* DownloadContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B37D00241CC55700587FEB /* DownloadContoller.swift */; };
+		18D788CD24B21FCE00ABCC14 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D788CC24B21FCE00ABCC14 /* NotificationCenter.framework */; };
+		18D788D024B21FCE00ABCC14 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D788CF24B21FCE00ABCC14 /* TodayViewController.swift */; };
+		18D788D324B21FCE00ABCC14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D788D124B21FCE00ABCC14 /* MainInterface.storyboard */; };
+		18D788D724B21FCE00ABCC14 /* Grade SFedU TE.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 18D788CB24B21FCE00ABCC14 /* Grade SFedU TE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		618C49A2B659F01A2A425715 /* Pods_Grade_SFedU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18D788D524B21FCE00ABCC14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1895A3032412E82E0044FA9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18D788CA24B21FCE00ABCC14;
+			remoteInfo = "Grade SFedU TE";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18D788DB24B21FCE00ABCC14 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				18D788D724B21FCE00ABCC14 /* Grade SFedU TE.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		181CA36624ACC9DA0097B349 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
@@ -43,6 +71,11 @@
 		1895A3392417DB730044FA9A /* SubjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
 		18A23DF2245F9D0A001A5B0E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		18B37D00241CC55700587FEB /* DownloadContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadContoller.swift; sourceTree = "<group>"; };
+		18D788CB24B21FCE00ABCC14 /* Grade SFedU TE.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Grade SFedU TE.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D788CC24B21FCE00ABCC14 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		18D788CF24B21FCE00ABCC14 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		18D788D224B21FCE00ABCC14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		18D788D424B21FCE00ABCC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.debug.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.debug.xcconfig"; sourceTree = "<group>"; };
 		96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.release.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.release.xcconfig"; sourceTree = "<group>"; };
 		DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grade_SFedU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +87,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				618C49A2B659F01A2A425715 /* Pods_Grade_SFedU.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18D788C824B21FCE00ABCC14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18D788CD24B21FCE00ABCC14 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				1895A30D2412E82E0044FA9A /* Grade SFedU */,
+				18D788CE24B21FCE00ABCC14 /* Grade SFedU TE */,
 				1895A30C2412E82E0044FA9A /* Products */,
 				A3165673230FFB43FD9C9167 /* Pods */,
 				2576EF6C3187873E171A47E9 /* Frameworks */,
@@ -92,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				1895A30B2412E82E0044FA9A /* Grade SFedU.app */,
+				18D788CB24B21FCE00ABCC14 /* Grade SFedU TE.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,10 +184,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		18D788CE24B21FCE00ABCC14 /* Grade SFedU TE */ = {
+			isa = PBXGroup;
+			children = (
+				18D788CF24B21FCE00ABCC14 /* TodayViewController.swift */,
+				18D788D124B21FCE00ABCC14 /* MainInterface.storyboard */,
+				18D788D424B21FCE00ABCC14 /* Info.plist */,
+			);
+			path = "Grade SFedU TE";
+			sourceTree = "<group>";
+		};
 		2576EF6C3187873E171A47E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */,
+				18D788CC24B21FCE00ABCC14 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,10 +224,12 @@
 				1895A3082412E82E0044FA9A /* Frameworks */,
 				1895A3092412E82E0044FA9A /* Resources */,
 				DC8430865A0EB9FCC1F75DFC /* [CP] Embed Pods Frameworks */,
+				18D788DB24B21FCE00ABCC14 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				18D788D624B21FCE00ABCC14 /* PBXTargetDependency */,
 			);
 			name = "Grade SFedU";
 			packageProductDependencies = (
@@ -182,18 +238,38 @@
 			productReference = 1895A30B2412E82E0044FA9A /* Grade SFedU.app */;
 			productType = "com.apple.product-type.application";
 		};
+		18D788CA24B21FCE00ABCC14 /* Grade SFedU TE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18D788D824B21FCE00ABCC14 /* Build configuration list for PBXNativeTarget "Grade SFedU TE" */;
+			buildPhases = (
+				18D788C724B21FCE00ABCC14 /* Sources */,
+				18D788C824B21FCE00ABCC14 /* Frameworks */,
+				18D788C924B21FCE00ABCC14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Grade SFedU TE";
+			productName = "Grade SFedU TE";
+			productReference = 18D788CB24B21FCE00ABCC14 /* Grade SFedU TE.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1895A3032412E82E0044FA9A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Sergey Korshunov";
 				TargetAttributes = {
 					1895A30A2412E82E0044FA9A = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					18D788CA24B21FCE00ABCC14 = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -213,6 +289,7 @@
 			projectRoot = "";
 			targets = (
 				1895A30A2412E82E0044FA9A /* Grade SFedU */,
+				18D788CA24B21FCE00ABCC14 /* Grade SFedU TE */,
 			);
 		};
 /* End PBXProject section */
@@ -227,6 +304,14 @@
 				1895A31B2412E8340044FA9A /* LaunchScreen.storyboard in Resources */,
 				1895A3182412E8340044FA9A /* Assets.xcassets in Resources */,
 				1895A3162412E82E0044FA9A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18D788C924B21FCE00ABCC14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18D788D324B21FCE00ABCC14 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +377,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18D788C724B21FCE00ABCC14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18D788D024B21FCE00ABCC14 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18D788D624B21FCE00ABCC14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18D788CA24B21FCE00ABCC14 /* Grade SFedU TE */;
+			targetProxy = 18D788D524B21FCE00ABCC14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1895A3142412E82E0044FA9A /* Main.storyboard */ = {
@@ -309,6 +410,14 @@
 				1895A31A2412E8340044FA9A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		18D788D124B21FCE00ABCC14 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18D788D224B21FCE00ABCC14 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -432,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
@@ -452,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
@@ -463,6 +574,46 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sergeykorshunov.Grade-SFedU";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		18D788D924B21FCE00ABCC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
+				INFOPLIST_FILE = "Grade SFedU TE/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sergeykorshunov.Grade-SFedU.Grade-SFedU-TE";
+				PRODUCT_NAME = "Grade SFedU TE";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		18D788DA24B21FCE00ABCC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
+				INFOPLIST_FILE = "Grade SFedU TE/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sergeykorshunov.Grade-SFedU.Grade-SFedU-TE";
+				PRODUCT_NAME = "Grade SFedU TE";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -485,6 +636,15 @@
 			buildConfigurations = (
 				1895A3202412E8340044FA9A /* Debug */,
 				1895A3212412E8340044FA9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18D788D824B21FCE00ABCC14 /* Build configuration list for PBXNativeTarget "Grade SFedU TE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18D788D924B21FCE00ABCC14 /* Debug */,
+				18D788DA24B21FCE00ABCC14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
