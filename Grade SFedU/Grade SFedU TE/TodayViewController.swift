@@ -9,13 +9,20 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UITableViewController, NCWidgetProviding {    
+class TodayViewController: UITableViewController, NCWidgetProviding {
+
+    var data = [(title: "Загрузка данных", rating: "")] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
+        tableView.register(UINib(nibName: TodaySubjectCell.id, bundle: Bundle.main), forCellReuseIdentifier: TodaySubjectCell.id)
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -23,7 +30,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        completionHandler(.newData)
+
+        
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -36,12 +44,17 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "mycell")
-        cell.textLabel?.text = "Subject"
+        let cell = tableView.dequeueReusableCell(withIdentifier: TodaySubjectCell.id, for: indexPath) as! TodaySubjectCell
+        cell.titleLabel.text = data[indexPath.row].title
+        cell.ratingLabel.text = data[indexPath.row].rating
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

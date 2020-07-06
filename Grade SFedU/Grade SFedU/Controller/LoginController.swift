@@ -53,7 +53,7 @@ class LoginController: UIViewController {
         
         DataManager.setUser(login: loginTextField.text, password: passwordTextField.text)
         
-        LoginManager.connect { response in
+        NetworkManager.connect { response in
             if response == .success {
                 self.dismiss(animated: true, completion: nil)
             } else {

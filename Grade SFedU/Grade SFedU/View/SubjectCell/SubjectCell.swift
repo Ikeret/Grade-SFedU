@@ -33,7 +33,7 @@ class SubjectCell: UITableViewCell {
             rateLabel.text = subject.rate
         }
         
-        let circleConfig = Utilities.getCircleConfig(subject: subject)
+        let circleConfig = DataManager.getCircleConfig(subject: subject)
         rateCircle.backgroundColor = circleConfig.circleColor
         rateLabel.textColor = circleConfig.labelColor
         

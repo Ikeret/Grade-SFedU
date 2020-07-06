@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AF.cancelAllRequests()
             task.setTaskCompleted(success: false)
         }
-        scheduleNotification()
+//        scheduleNotification()
         task.setTaskCompleted(success: true)
 
         scheduleAppRefresh()
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func scheduleAppRefresh() {
         do {
             let request = BGAppRefreshTaskRequest(identifier: "sergeykorshunov.Grade-SFedU.checkup")
-            request.earliestBeginDate = Date(timeIntervalSinceNow: 60)
+            request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 20)
             try BGTaskScheduler.shared.submit(request)
         } catch {
             print(error.localizedDescription)
@@ -75,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func scheduleNotification() {
-        print("notification")
         let content = UNMutableNotificationContent()
         content.title = "Grade SFedU"
         content.body = "Выставлены новые баллы"

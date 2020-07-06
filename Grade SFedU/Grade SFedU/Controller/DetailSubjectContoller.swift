@@ -25,7 +25,7 @@ class DetailSubjectContoller: UITableViewController {
     }
     
     @objc func refreshData() {
-        LoginManager.resignIfNeeded { status in
+        NetworkManager.resignIfNeeded { status in
             if status == .success {
                 self.loadData()
             } else if status == .noNetworkConnection {
@@ -42,7 +42,7 @@ class DetailSubjectContoller: UITableViewController {
     }
     
     func loadData() {
-        DownloadController.loadDiscipline(discipline: subject.link, completionHandler: { response in
+        NetworkManager.loadDiscipline(discipline: subject.link, completionHandler: { response in
              self.data = response
              self.tableView.reloadData()
              self.refreshControl?.endRefreshing()

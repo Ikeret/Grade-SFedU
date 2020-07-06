@@ -85,6 +85,7 @@ class SubjectsController: UITableViewController {
         
         alert.addAction(.init(title: "Выйти из аккаунта", style: .destructive, handler: { (action) in
             DataManager.clearPassword()
+            NetworkManager.signOut()
             let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC") as! LoginController
             loginVC.modalPresentationStyle = .fullScreen
             self.present(loginVC, animated: true)
@@ -98,7 +99,7 @@ class SubjectsController: UITableViewController {
         
         for semestr in DataManager.semestrs {
             alert.addAction(.init(title: semestr.title, style: .default, handler: { (action) in
-                LoginManager.setSemestr(id: semestr.id) {
+                NetworkManager.setSemestr(id: semestr.id) {
                     self.refreshData()
                 }
             }))
@@ -109,7 +110,7 @@ class SubjectsController: UITableViewController {
     }
     
     @objc func refreshData() {
-        LoginManager.connect { response in
+        NetworkManager.connect { response in
             if response == .success {
                 self.data = DataManager.subjects
                 self.tableView.separatorStyle = .singleLine

@@ -1,5 +1,5 @@
 //
-//  LoginManager.swift
+//  NetworkManager.swift
 //  Grade SFedU
 //
 //  Created by Сергей Коршунов on 07.03.2020.
@@ -10,7 +10,9 @@ import Foundation
 import Alamofire
 import Kanna
 
-class LoginManager {
+class NetworkManager {
+    static let basicURL = "http://grade.sfedu.ru"
+    
     enum LoginStatus: String {
         case success = ""
         case wrongPassword = "Неверный логин и/или пароль. Повторите попытку."
@@ -25,7 +27,7 @@ class LoginManager {
         }
         
         guard DataManager.isExpire() else {
-            AF.request("http://grade.sfedu.ru/").response { response in
+            AF.request(basicURL).response { response in
                 let html = String(data: response.data!, encoding: .utf8)!
 
                 parseHTML(html: html)
@@ -47,7 +49,7 @@ class LoginManager {
                 }
             }
             
-            AF.request("http://grade.sfedu.ru/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { response in
+            AF.request(basicURL + "/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { response in
                 
                 DataManager.expireCookie = Date().timeIntervalSince1970 + 1500
                 
@@ -81,7 +83,7 @@ class LoginManager {
                 }
             }
             
-            AF.request("http://grade.sfedu.ru/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { _ in
+            AF.request(basicURL + "/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { _ in
                 DataManager.expireCookie = Date().timeIntervalSince1970 + 1500
                 completionHandler(.success)
             }
@@ -128,8 +130,50 @@ class LoginManager {
     }
     
     public static func setSemestr(id: String, completionHandler: @escaping () -> Void) {
-        AF.request("https://grade.sfedu.ru/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { _ in
+        AF.request(basicURL + "/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { _ in
             completionHandler()
+        }
+    }
+    
+    public static func signOut() {
+        AF.request(basicURL + "/sign/out").response { _ in
+            
+        }
+    }
+    
+    public static func loadDiscipline(discipline: String, completionHandler: @escaping ([DataManager.module]) -> Void) {
+
+        AF.request(basicURL + discipline).response { response in
+            
+            let html = String(data: response.data!, encoding: .utf8)!
+            if let doc = try? HTML(html: html, encoding: .utf8) {
+                var moduleTitles = [String]()
+                for node in doc.css(".tableTitle, .totalRate") {
+                    moduleTitles.append(node.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+                }
+                var textData = [String]()
+                for node in doc.css(".tableTitle, .submoduleTitle, .submoduleRate, .submoduleDate, .totalRate") {
+                    let string = node.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    textData.append(string)
+                }
+                
+                var result = [DataManager.module]()
+                
+                while !textData.isEmpty {
+                    let title = moduleTitles.removeFirst()
+                    textData.removeFirst()
+                    if title.hasPrefix("Промежуточный итог") || title.hasPrefix("Итоговый рейтинг") {
+                        result.append(.init(title: "", submoles: [.init(title: title, rate: "", date: "")]))
+                        continue
+                    }
+                    var module = DataManager.module(title: title, submoles: [])
+                    while textData.first != moduleTitles.first {
+                        module.submoles.append(.init(title: textData.removeFirst(), rate: textData.removeFirst(), date: textData.removeFirst()))
+                    }
+                    result.append(module)
+                }
+                completionHandler(result)
+            }
         }
     }
 }
