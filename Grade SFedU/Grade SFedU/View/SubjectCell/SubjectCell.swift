@@ -25,8 +25,8 @@ class SubjectCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(subject: DataManager.subject, showNormalTitle: Bool) {
-        subjectLabel.text = showNormalTitle ? subject.getNormalTitle() : subject.title
+    func configure(subject: DataManager.subject) {
+        subjectLabel.text = subject.getTitle()
         if subject.maxRate == "0" {
             rateLabel.text = "\u{2014}"
         } else {

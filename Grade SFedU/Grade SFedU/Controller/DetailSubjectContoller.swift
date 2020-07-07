@@ -10,17 +10,25 @@ import UIKit
 import NotificationBannerSwift
 
 class DetailSubjectContoller: UITableViewController {
-
+    
     var subject: DataManager.subject!
     var data = [DataManager.module]()
+    
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = subject.getTitle()
+        
         tableView.register(UINib(nibName: SubmoduleCell.id, bundle: Bundle.main), forCellReuseIdentifier: SubmoduleCell.id)
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
         tableView.separatorStyle = .none
+        tableView.backgroundView = activityIndicator
         refreshData()
     }
     
@@ -43,20 +51,20 @@ class DetailSubjectContoller: UITableViewController {
     
     func loadData() {
         NetworkManager.loadDiscipline(discipline: subject.link, completionHandler: { response in
-             self.data = response
-             self.tableView.reloadData()
-             self.refreshControl?.endRefreshing()
-             
-             self.tableView.separatorStyle = .singleLine
+            self.data = response
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            self.activityIndicator.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
         })
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == data.count { return 0 }
         return data[section].submoles.count
@@ -67,7 +75,7 @@ class DetailSubjectContoller: UITableViewController {
         
         let submodule = data[indexPath.section].submoles[indexPath.row]
         cell.configure(title: submodule.title, rate: submodule.rate, date: submodule.date)
-
+        
         return cell
     }
     

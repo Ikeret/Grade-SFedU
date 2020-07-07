@@ -10,7 +10,7 @@ import UIKit
 import NotificationBannerSwift
 
 class LoginController: UIViewController {
-
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -39,7 +39,7 @@ class LoginController: UIViewController {
             loginButton.isEnabled = false
             return
         }
-            
+        
         if !login.isEmpty && !password.isEmpty {
             loginButton.isEnabled = true
         } else {

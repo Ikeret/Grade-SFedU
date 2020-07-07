@@ -22,8 +22,12 @@ class DataManager {
         var maxRate: String
         var type: String
         
-        func getNormalTitle() -> String {
-            return UserDefaults.standard.string(forKey: "rename \(title)") ?? title
+        func getTitle() -> String {
+            if DataManager.showNormalTitle {
+                return UserDefaults.standard.string(forKey: "rename \(title)") ?? title
+            } else {
+                return title
+            }
         }
         
         func isHidden() -> Bool {
@@ -67,6 +71,18 @@ class DataManager {
     
     static func clearPassword() {
         UserDefaults.standard.set(nil, forKey: "password")
+    }
+    
+    static var username = ""
+    
+    static var hideSubjects: Bool {
+        get { !UserDefaults.standard.bool(forKey: "hideSubjects") }
+        set { UserDefaults.standard.set(!newValue, forKey: "hideSubjects") }
+    }
+    
+    static var showNormalTitle: Bool {
+        get { !UserDefaults.standard.bool(forKey: "showNormalTitle") }
+        set { UserDefaults.standard.set(!newValue, forKey: "showNormalTitle") }
     }
     
     static let markA = UIColor(named: "markA")!

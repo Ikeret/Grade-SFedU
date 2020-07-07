@@ -14,19 +14,9 @@ class SubjectsController: UITableViewController {
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     @IBOutlet weak var semestrsBarButton: UIBarButtonItem!
     
-    var hideSubjects: Bool {
-        get { !UserDefaults.standard.bool(forKey: "hideSubjects") }
-        set { UserDefaults.standard.set(!newValue, forKey: "hideSubjects") }
-    }
-    
-    var showNormalTitle: Bool {
-        get { !UserDefaults.standard.bool(forKey: "showNormalTitle") }
-        set { UserDefaults.standard.set(!newValue, forKey: "showNormalTitle") }
-    }
-    
     var data: [DataManager.subject] = [] {
         didSet {
-            if hideSubjects { data.removeAll { $0.isHidden() } }
+            if DataManager.hideSubjects { data.removeAll { $0.isHidden() } }
         }
     }
     
@@ -34,7 +24,7 @@ class SubjectsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: SubjectCell.id, bundle: Bundle.main), forCellReuseIdentifier: SubjectCell.id)
         
         refreshControl = UIRefreshControl()
@@ -44,7 +34,7 @@ class SubjectsController: UITableViewController {
         if user.password.isEmpty {
             let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC") as! LoginController
             loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: false, completion: nil)
+            present(loginVC, animated: false)
             return
         }
         settingsBarButton.isEnabled = false
@@ -60,38 +50,18 @@ class SubjectsController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let user = DataManager.getUser()
+        if user.password.isEmpty {
+            let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC") as! LoginController
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: true)
+            return
+        }
+        
         super.viewWillAppear(animated)
         data = DataManager.subjects
         navigationItem.title = DataManager.currentSemestr
         tableView.reloadData()
-    }
-    
-    @IBAction func settingsAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(.init(title: "Отмена", style: .cancel, handler: nil))
-
-        var title = "Скрытые предметы: " + (hideSubjects ? "выкл." : "вкл.")
-        alert.addAction(.init(title: title, style: .default, handler: { (action) in
-            self.hideSubjects.toggle()
-            self.data = DataManager.subjects
-            self.tableView.reloadData()
-        }))
-        
-        title = "Свои названия предметов: " + (showNormalTitle ? "вкл." : "выкл.")
-        alert.addAction(.init(title: title, style: .default, handler: { (action) in
-            self.showNormalTitle.toggle()
-            self.tableView.reloadData()
-        }))
-        
-        alert.addAction(.init(title: "Выйти из аккаунта", style: .destructive, handler: { (action) in
-            DataManager.clearPassword()
-            NetworkManager.signOut()
-            let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC") as! LoginController
-            loginVC.modalPresentationStyle = .fullScreen
-            self.present(loginVC, animated: true)
-        }))
-        
-        present(alert, animated: true)
     }
     
     @IBAction func chooseSemestr(_ sender: Any) {
@@ -139,16 +109,16 @@ class SubjectsController: UITableViewController {
             }
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SubjectCell.id) as! SubjectCell
-        cell.configure(subject: data[indexPath.row], showNormalTitle: showNormalTitle)
+        cell.configure(subject: data[indexPath.row])
         
         return cell
     }
@@ -174,13 +144,13 @@ class SubjectsController: UITableViewController {
             }))
             alert.preferredAction = alert.actions.first
             
-            if subject.title != subject.getNormalTitle() {
+            if subject.title != subject.getTitle() {
                 alert.addAction(.init(title: "По умолчанию", style: .default, handler: { (action) in
                     UserDefaults.standard.set(nil, forKey: "rename \(subject.title)")
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }))
             }
-
+            
             alert.addAction(.init(title: "Отмена", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
@@ -190,7 +160,7 @@ class SubjectsController: UITableViewController {
         let hideAction = UIContextualAction(style: .destructive, title: nil) { (action, view, handler) in
             handler(true)
             UserDefaults.standard.set(!subject.isHidden(), forKey: "hidden \(subject.link)")
-            if self.hideSubjects {
+            if DataManager.hideSubjects {
                 self.data.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             } else {
@@ -200,7 +170,7 @@ class SubjectsController: UITableViewController {
         let imageName = subject.isHidden() ? "eye" : "eye.slash"
         hideAction.image = UIImage(systemName: imageName)
         
-        if showNormalTitle {
+        if DataManager.showNormalTitle {
             return UISwipeActionsConfiguration(actions: [hideAction, renameAction])
         } else {
             return UISwipeActionsConfiguration(actions: [hideAction])
@@ -220,14 +190,13 @@ class SubjectsController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSeg" {
             let destinationVC = segue.destination as! DetailSubjectContoller
             let subject = data[sender as! Int]
             destinationVC.subject = subject
-            destinationVC.navigationItem.title = showNormalTitle ? subject.getNormalTitle() : subject.title
         }
     }
 }

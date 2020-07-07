@@ -29,7 +29,7 @@ class NetworkManager {
         guard DataManager.isExpire() else {
             AF.request(basicURL).response { response in
                 let html = String(data: response.data!, encoding: .utf8)!
-
+                
                 parseHTML(html: html)
                 completionHandler(.success)
             }
@@ -54,7 +54,7 @@ class NetworkManager {
                 DataManager.expireCookie = Date().timeIntervalSince1970 + 1500
                 
                 let html = String(data: response.data!, encoding: .utf8)!
-
+                
                 parseHTML(html: html)
                 completionHandler(.success)
             }
@@ -124,9 +124,8 @@ class NetworkManager {
             }
         }
         
-        for node in doc.css(".semesterChangerSelection") {
-            DataManager.currentSemestr = node.text!
-        }
+        DataManager.currentSemestr = doc.at_css(".semesterChangerSelection")?.text ?? ""
+        DataManager.username = doc.at_xpath("//*[@id=\"username\"]")?.text ?? ""
     }
     
     static func setSemestr(id: String, completionHandler: @escaping () -> Void) {
@@ -136,13 +135,12 @@ class NetworkManager {
     }
     
     static func signOut() {
-        AF.request(basicURL + "/sign/out").response { _ in
-            
-        }
+        DataManager.expireCookie = 0
+        DataManager.clearPassword()
     }
     
     static func loadDiscipline(discipline: String, completionHandler: @escaping ([DataManager.module]) -> Void) {
-
+        
         AF.request(basicURL + discipline).response { response in
             
             let html = String(data: response.data!, encoding: .utf8)!

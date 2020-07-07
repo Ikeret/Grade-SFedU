@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FzE-qO-Uc5">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -88,11 +88,11 @@
                             <outlet property="delegate" destination="Xvq-Mx-5Bq" id="g8E-Y9-ZCu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Дисциплины" id="ftb-lz-wzJ">
+                    <navigationItem key="navigationItem" title="Дисциплины" largeTitleDisplayMode="never" id="ftb-lz-wzJ">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="gWH-9i-flm"/>
                         <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="5qP-8M-UEt">
                             <connections>
-                                <action selector="settingsAction:" destination="Xvq-Mx-5Bq" id="q3h-WY-BcR"/>
+                                <segue destination="Lvx-fb-GlG" kind="show" id="ve6-2t-vUg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="tjw-yN-WGS">
@@ -111,6 +111,127 @@
             </objects>
             <point key="canvasLocation" x="2143.1999999999998" y="129.98500749625188"/>
         </scene>
+        <!--Settings Controller-->
+        <scene sceneID="Pyb-CO-Kso">
+            <objects>
+                <tableViewController id="Lvx-fb-GlG" customClass="SettingsController" customModule="Grade_SFedU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Im4-sD-HCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Настройки" footerTitle="Если включено, скрытые предметы будут отображаться в списке, но останутся полупрозрачными." id="mpc-gL-ceR">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gBz-AB-d4f">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gBz-AB-d4f" id="D9G-Rw-5U8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показывать скрытые" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3l-q5-6lM">
+                                                    <rect key="frame" x="36" y="11.5" width="168.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-42-Snh">
+                                                    <rect key="frame" x="349" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="setHide:" destination="Lvx-fb-GlG" eventType="valueChanged" id="Zf0-nQ-SAF"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0Au-42-Snh" secondAttribute="trailing" constant="16" id="7lT-bR-ZlG"/>
+                                                <constraint firstItem="Y3l-q5-6lM" firstAttribute="leading" secondItem="D9G-Rw-5U8" secondAttribute="leadingMargin" constant="16" id="LLz-16-JM2"/>
+                                                <constraint firstItem="Y3l-q5-6lM" firstAttribute="centerY" secondItem="D9G-Rw-5U8" secondAttribute="centerY" id="dFa-j3-vjD"/>
+                                                <constraint firstItem="0Au-42-Snh" firstAttribute="centerY" secondItem="D9G-Rw-5U8" secondAttribute="centerY" id="fhd-bT-ai2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Если включено, будет отображаться заданное название дисциплины вместо обычного." id="LkD-6A-OUq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1sb-3X-S8X">
+                                        <rect key="frame" x="0.0" y="163" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1sb-3X-S8X" id="PNd-pS-z31">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Переименование предметов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhj-9o-GRE">
+                                                    <rect key="frame" x="36" y="11.5" width="231.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPW-P3-Xoe">
+                                                    <rect key="frame" x="349" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="setRename:" destination="Lvx-fb-GlG" eventType="valueChanged" id="aUv-oX-6L0"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cPW-P3-Xoe" firstAttribute="centerY" secondItem="PNd-pS-z31" secondAttribute="centerY" id="6X0-PD-m1h"/>
+                                                <constraint firstAttribute="trailing" secondItem="cPW-P3-Xoe" secondAttribute="trailing" constant="16" id="DQh-Mq-i68"/>
+                                                <constraint firstItem="Xhj-9o-GRE" firstAttribute="leading" secondItem="PNd-pS-z31" secondAttribute="leadingMargin" constant="16" id="iKh-Xa-HMD"/>
+                                                <constraint firstItem="Xhj-9o-GRE" firstAttribute="centerY" secondItem="PNd-pS-z31" secondAttribute="centerY" id="jTA-wj-8da"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Вся информация, отображаемая в приложении взята напрямую из grade.sfedu.ru" id="OTK-st-cQV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XqG-vR-rZ2">
+                                        <rect key="frame" x="0.0" y="270.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XqG-vR-rZ2" id="U5M-Z4-S02">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4No-3H-4GL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="AyL-Af-fMM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Выйти из аккаунта"/>
+                                                    <connections>
+                                                        <action selector="logOut:" destination="Lvx-fb-GlG" eventType="touchUpInside" id="akl-yb-KwO"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4No-3H-4GL" secondAttribute="bottom" id="5sT-EU-v6c"/>
+                                                <constraint firstAttribute="trailing" secondItem="4No-3H-4GL" secondAttribute="trailing" id="6Me-wr-MHO"/>
+                                                <constraint firstItem="4No-3H-4GL" firstAttribute="top" secondItem="U5M-Z4-S02" secondAttribute="top" id="XFb-S8-dHQ"/>
+                                                <constraint firstItem="4No-3H-4GL" firstAttribute="leading" secondItem="U5M-Z4-S02" secondAttribute="leading" id="q2m-4X-rkV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Lvx-fb-GlG" id="qdi-V5-bfo"/>
+                            <outlet property="delegate" destination="Lvx-fb-GlG" id="MPp-qX-ScN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="N5V-66-ExI"/>
+                    <connections>
+                        <outlet property="hideSwitcher" destination="0Au-42-Snh" id="5gn-5I-Cps"/>
+                        <outlet property="renameSwitcher" destination="cPW-P3-Xoe" id="cZa-Gt-8bi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zce-PT-KaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="871"/>
+        </scene>
         <!--Detail Subject Contoller-->
         <scene sceneID="vEe-Hz-Q4P">
             <objects>
@@ -123,7 +244,7 @@
                             <outlet property="delegate" destination="kBx-DO-jKB" id="MqQ-1F-Gni"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aGh-vb-dUl"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="aGh-vb-dUl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GV-8m-zky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,7 +255,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FzE-qO-Uc5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ufo-nD-lcc"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ufo-nD-lcc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9t2-pp-KNl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
