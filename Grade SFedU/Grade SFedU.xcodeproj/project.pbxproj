@@ -12,14 +12,19 @@
 		183BB79224AD302800F7C0F1 /* DetailSubjectContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BB79124AD302800F7C0F1 /* DetailSubjectContoller.swift */; };
 		183BB79524AD331000F7C0F1 /* SubmoduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BB79324AD331000F7C0F1 /* SubmoduleCell.swift */; };
 		183BB79624AD331000F7C0F1 /* SubmoduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */; };
+		1845C4BC24B5448F00DEBD4C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A327241301160044FA9A /* NetworkManager.swift */; };
+		1845C4BD24B5449200DEBD4C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A23DF2245F9D0A001A5B0E /* DataManager.swift */; };
+		1845C4C024B5515E00DEBD4C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A23DF2245F9D0A001A5B0E /* DataManager.swift */; };
+		1845C4C124B5516000DEBD4C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A327241301160044FA9A /* NetworkManager.swift */; };
+		1845C4C824B5549000DEBD4C /* TodayCompactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845C4C624B5549000DEBD4C /* TodayCompactCell.swift */; };
+		1845C4C924B5549000DEBD4C /* TodayCompactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1845C4C724B5549000DEBD4C /* TodayCompactCell.xib */; };
+		1845C4CA24B55A6400DEBD4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3172412E8340044FA9A /* Assets.xcassets */; };
 		1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A30E2412E82E0044FA9A /* AppDelegate.swift */; };
 		1895A3162412E82E0044FA9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3142412E82E0044FA9A /* Main.storyboard */; };
 		1895A3182412E8340044FA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3172412E8340044FA9A /* Assets.xcassets */; };
 		1895A31B2412E8340044FA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1895A3192412E8340044FA9A /* LaunchScreen.storyboard */; };
-		1895A328241301160044FA9A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A327241301160044FA9A /* NetworkManager.swift */; };
 		1895A335241336C50044FA9A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A334241336C50044FA9A /* LoginController.swift */; };
 		1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895A3392417DB730044FA9A /* SubjectsController.swift */; };
-		18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A23DF2245F9D0A001A5B0E /* DataManager.swift */; };
 		18D788CD24B21FCE00ABCC14 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D788CC24B21FCE00ABCC14 /* NotificationCenter.framework */; };
 		18D788D024B21FCE00ABCC14 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D788CF24B21FCE00ABCC14 /* TodayViewController.swift */; };
 		18D788D324B21FCE00ABCC14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D788D124B21FCE00ABCC14 /* MainInterface.storyboard */; };
@@ -28,6 +33,7 @@
 		18D788E224B3871000ABCC14 /* TodaySubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D788E024B3871000ABCC14 /* TodaySubjectCell.xib */; };
 		18D788E424B3ED8600ABCC14 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D788E324B3ED8600ABCC14 /* SettingsController.swift */; };
 		618C49A2B659F01A2A425715 /* Pods_Grade_SFedU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */; };
+		A69A858D2D6F974E690ECE4C /* Pods_Grade_SFedU_TE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A41B1D9A7D02421F585413 /* Pods_Grade_SFedU_TE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18EEE6AE24B4FC8D004701EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +76,8 @@
 		183BB79124AD302800F7C0F1 /* DetailSubjectContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubjectContoller.swift; sourceTree = "<group>"; };
 		183BB79324AD331000F7C0F1 /* SubmoduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmoduleCell.swift; sourceTree = "<group>"; };
 		183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmoduleCell.xib; sourceTree = "<group>"; };
+		1845C4C624B5549000DEBD4C /* TodayCompactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCompactCell.swift; sourceTree = "<group>"; };
+		1845C4C724B5549000DEBD4C /* TodayCompactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayCompactCell.xib; sourceTree = "<group>"; };
 		1895A30B2412E82E0044FA9A /* Grade SFedU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grade SFedU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895A30E2412E82E0044FA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895A3152412E82E0044FA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,9 +96,18 @@
 		18D788DF24B3871000ABCC14 /* TodaySubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySubjectCell.swift; sourceTree = "<group>"; };
 		18D788E024B3871000ABCC14 /* TodaySubjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodaySubjectCell.xib; sourceTree = "<group>"; };
 		18D788E324B3ED8600ABCC14 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		18D788E524B4F00800ABCC14 /* Grade SFedU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Grade SFedU.entitlements"; sourceTree = "<group>"; };
+		18D788E624B4F0FC00ABCC14 /* Grade SFedU TE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Grade SFedU TE.entitlements"; sourceTree = "<group>"; };
+		18EEE6B224B4FCFB004701EA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EEE6B324B4FCFB004701EA /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24A41B1D9A7D02421F585413 /* Pods_Grade_SFedU_TE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grade_SFedU_TE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C4B7B62DC8EDB7E7D9837D7 /* Pods-Grade SFedU TE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU TE.debug.xcconfig"; path = "Target Support Files/Pods-Grade SFedU TE/Pods-Grade SFedU TE.debug.xcconfig"; sourceTree = "<group>"; };
+		3F6E4C13470432D76256A373 /* Pods-Grade SFedU-Grade SFedU TE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU-Grade SFedU TE.release.xcconfig"; path = "Target Support Files/Pods-Grade SFedU-Grade SFedU TE/Pods-Grade SFedU-Grade SFedU TE.release.xcconfig"; sourceTree = "<group>"; };
 		44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.debug.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.debug.xcconfig"; sourceTree = "<group>"; };
 		96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU.release.xcconfig"; path = "Target Support Files/Pods-Grade SFedU/Pods-Grade SFedU.release.xcconfig"; sourceTree = "<group>"; };
+		AA1F0FC1F6B667857BC195EB /* Pods-Grade SFedU TE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU TE.release.xcconfig"; path = "Target Support Files/Pods-Grade SFedU TE/Pods-Grade SFedU TE.release.xcconfig"; sourceTree = "<group>"; };
 		DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grade_SFedU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF126B9DD0C1E0CFEE084479 /* Pods-Grade SFedU-Grade SFedU TE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grade SFedU-Grade SFedU TE.debug.xcconfig"; path = "Target Support Files/Pods-Grade SFedU-Grade SFedU TE/Pods-Grade SFedU-Grade SFedU TE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D788CD24B21FCE00ABCC14 /* NotificationCenter.framework in Frameworks */,
+				A69A858D2D6F974E690ECE4C /* Pods_Grade_SFedU_TE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +147,24 @@
 				183BB79424AD331000F7C0F1 /* SubmoduleCell.xib */,
 			);
 			path = SubmoduleCell;
+			sourceTree = "<group>";
+		};
+		1845C4C424B5546000DEBD4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1845C4C524B5546F00DEBD4C /* TodayCompactCell */,
+				18D788DE24B386FA00ABCC14 /* TodaySubjectCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1845C4C524B5546F00DEBD4C /* TodayCompactCell */ = {
+			isa = PBXGroup;
+			children = (
+				1845C4C624B5549000DEBD4C /* TodayCompactCell.swift */,
+				1845C4C724B5549000DEBD4C /* TodayCompactCell.xib */,
+			);
+			path = TodayCompactCell;
 			sourceTree = "<group>";
 		};
 		1895A3022412E82E0044FA9A = {
@@ -152,6 +198,7 @@
 				1895A3172412E8340044FA9A /* Assets.xcassets */,
 				1895A3192412E8340044FA9A /* LaunchScreen.storyboard */,
 				1895A31C2412E8340044FA9A /* Info.plist */,
+				18D788E524B4F00800ABCC14 /* Grade SFedU.entitlements */,
 			);
 			path = "Grade SFedU";
 			sourceTree = "<group>";
@@ -188,10 +235,11 @@
 		18D788CE24B21FCE00ABCC14 /* Grade SFedU TE */ = {
 			isa = PBXGroup;
 			children = (
-				18D788DE24B386FA00ABCC14 /* TodaySubjectCell */,
+				1845C4C424B5546000DEBD4C /* View */,
 				18D788CF24B21FCE00ABCC14 /* TodayViewController.swift */,
 				18D788D124B21FCE00ABCC14 /* MainInterface.storyboard */,
 				18D788D424B21FCE00ABCC14 /* Info.plist */,
+				18D788E624B4F0FC00ABCC14 /* Grade SFedU TE.entitlements */,
 			);
 			path = "Grade SFedU TE";
 			sourceTree = "<group>";
@@ -208,8 +256,11 @@
 		2576EF6C3187873E171A47E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18EEE6B224B4FCFB004701EA /* Alamofire.framework */,
+				18EEE6B324B4FCFB004701EA /* Kanna.framework */,
 				DE3922EDCDD01FAC0DFBCD78 /* Pods_Grade_SFedU.framework */,
 				18D788CC24B21FCE00ABCC14 /* NotificationCenter.framework */,
+				24A41B1D9A7D02421F585413 /* Pods_Grade_SFedU_TE.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +270,10 @@
 			children = (
 				44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */,
 				96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */,
+				DF126B9DD0C1E0CFEE084479 /* Pods-Grade SFedU-Grade SFedU TE.debug.xcconfig */,
+				3F6E4C13470432D76256A373 /* Pods-Grade SFedU-Grade SFedU TE.release.xcconfig */,
+				3C4B7B62DC8EDB7E7D9837D7 /* Pods-Grade SFedU TE.debug.xcconfig */,
+				AA1F0FC1F6B667857BC195EB /* Pods-Grade SFedU TE.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -236,6 +291,7 @@
 				1895A3092412E82E0044FA9A /* Resources */,
 				DC8430865A0EB9FCC1F75DFC /* [CP] Embed Pods Frameworks */,
 				18D788DB24B21FCE00ABCC14 /* Embed App Extensions */,
+				18EEE6AE24B4FC8D004701EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,8 +299,6 @@
 				18D788D624B21FCE00ABCC14 /* PBXTargetDependency */,
 			);
 			name = "Grade SFedU";
-			packageProductDependencies = (
-			);
 			productName = "Grade SFedU";
 			productReference = 1895A30B2412E82E0044FA9A /* Grade SFedU.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +307,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D788D824B21FCE00ABCC14 /* Build configuration list for PBXNativeTarget "Grade SFedU TE" */;
 			buildPhases = (
+				51DCAE38F3829A3FC5E4E7C9 /* [CP] Check Pods Manifest.lock */,
 				18D788C724B21FCE00ABCC14 /* Sources */,
 				18D788C824B21FCE00ABCC14 /* Frameworks */,
 				18D788C924B21FCE00ABCC14 /* Resources */,
@@ -293,8 +348,6 @@
 				Base,
 			);
 			mainGroup = 1895A3022412E82E0044FA9A;
-			packageReferences = (
-			);
 			productRefGroup = 1895A30C2412E82E0044FA9A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,12 +377,36 @@
 			files = (
 				18D788E224B3871000ABCC14 /* TodaySubjectCell.xib in Resources */,
 				18D788D324B21FCE00ABCC14 /* MainInterface.storyboard in Resources */,
+				1845C4CA24B55A6400DEBD4C /* Assets.xcassets in Resources */,
+				1845C4C924B5549000DEBD4C /* TodayCompactCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		51DCAE38F3829A3FC5E4E7C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Grade SFedU TE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CD7D1FF858245BCE011FE2D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,11 +456,11 @@
 				18D788E424B3ED8600ABCC14 /* SettingsController.swift in Sources */,
 				1895A335241336C50044FA9A /* LoginController.swift in Sources */,
 				183BB79224AD302800F7C0F1 /* DetailSubjectContoller.swift in Sources */,
-				1895A328241301160044FA9A /* NetworkManager.swift in Sources */,
 				181CA36824ACC9DA0097B349 /* SubjectCell.swift in Sources */,
-				18A23DF3245F9D0A001A5B0E /* DataManager.swift in Sources */,
+				1845C4BC24B5448F00DEBD4C /* NetworkManager.swift in Sources */,
 				183BB79524AD331000F7C0F1 /* SubmoduleCell.swift in Sources */,
 				1895A30F2412E82E0044FA9A /* AppDelegate.swift in Sources */,
+				1845C4BD24B5449200DEBD4C /* DataManager.swift in Sources */,
 				1895A33A2417DB730044FA9A /* SubjectsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +469,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1845C4C824B5549000DEBD4C /* TodayCompactCell.swift in Sources */,
+				1845C4C124B5516000DEBD4C /* NetworkManager.swift in Sources */,
 				18D788E124B3871000ABCC14 /* TodaySubjectCell.swift in Sources */,
+				1845C4C024B5515E00DEBD4C /* DataManager.swift in Sources */,
 				18D788D024B21FCE00ABCC14 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,8 +633,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 44A70CDF5D79F681542AE561 /* Pods-Grade SFedU.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Grade SFedU/Grade SFedU.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU/Info.plist";
@@ -574,8 +654,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96980F521CA3074AE7B74554 /* Pods-Grade SFedU.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Grade SFedU/Grade SFedU.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU/Info.plist";
@@ -593,7 +673,9 @@
 		};
 		18D788D924B21FCE00ABCC14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C4B7B62DC8EDB7E7D9837D7 /* Pods-Grade SFedU TE.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Grade SFedU TE/Grade SFedU TE.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU TE/Info.plist";
@@ -613,7 +695,9 @@
 		};
 		18D788DA24B21FCE00ABCC14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA1F0FC1F6B667857BC195EB /* Pods-Grade SFedU TE.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Grade SFedU TE/Grade SFedU TE.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PJ9SKJ9FA;
 				INFOPLIST_FILE = "Grade SFedU TE/Info.plist";

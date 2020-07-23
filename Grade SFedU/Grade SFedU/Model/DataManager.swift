@@ -9,6 +9,9 @@
 import UIKit
 
 class DataManager {
+    
+    static let sharedDefaults = UserDefaults(suiteName: "group.sharingToTodayView")!
+    
     static var expireCookie: Double = 0
     
     static func isExpire() -> Bool {
@@ -23,19 +26,34 @@ class DataManager {
         var type: String
         
         func getTitle() -> String {
-            if DataManager.showNormalTitle {
-                return UserDefaults.standard.string(forKey: "rename \(title)") ?? title
+            if showNormalTitle {
+                return sharedDefaults.string(forKey: "rename \(title)") ?? title
             } else {
                 return title
             }
         }
         
         func isHidden() -> Bool {
-            return UserDefaults.standard.bool(forKey: "hidden \(link)")
+            return sharedDefaults.bool(forKey: "hidden \(link)")
         }
     }
     
     static var subjects = [subject]()
+    
+    static func saveTotalRating() {
+        if !subjects.isEmpty && (currentSemestr == semestrs.first?.title) {
+            let totalRating = subjects.reduce(0, {$0 + (Int($1.rate) ?? 0)})
+            sharedDefaults.set(totalRating, forKey: "totalRating")
+        }
+    }
+    
+    static func compareTotalRating() -> Bool {
+        if !subjects.isEmpty && (currentSemestr == semestrs.first?.title) {
+            let totalRating = subjects.reduce(0, {$0 + (Int($1.rate) ?? 0)})
+            return totalRating != sharedDefaults.integer(forKey: "totalRating")
+        }
+        return false
+    }
     
     static var currentSemestr = "Дисциплины"
     
@@ -58,31 +76,36 @@ class DataManager {
     }
     
     static func getUser() -> (login: String, password: String) {
-        let login = UserDefaults.standard.string(forKey: "login") ?? ""
-        let password = UserDefaults.standard.string(forKey: "password") ?? ""
+        let login = sharedDefaults.string(forKey: "login") ?? ""
+        let password = sharedDefaults.string(forKey: "password") ?? ""
         
         return (login, password)
     }
     
     static func setUser(login: String?, password: String?) {
-        UserDefaults.standard.set(login, forKey: "login")
-        UserDefaults.standard.set(password, forKey: "password")
+        sharedDefaults.set(login, forKey: "login")
+        sharedDefaults.set(password, forKey: "password")
     }
     
     static func clearPassword() {
-        UserDefaults.standard.set(nil, forKey: "password")
+        sharedDefaults.set(nil, forKey: "password")
     }
     
     static var username = ""
     
     static var hideSubjects: Bool {
-        get { !UserDefaults.standard.bool(forKey: "hideSubjects") }
-        set { UserDefaults.standard.set(!newValue, forKey: "hideSubjects") }
+        get { !sharedDefaults.bool(forKey: "hideSubjects") }
+        set { sharedDefaults.set(!newValue, forKey: "hideSubjects") }
     }
     
     static var showNormalTitle: Bool {
-        get { !UserDefaults.standard.bool(forKey: "showNormalTitle") }
-        set { UserDefaults.standard.set(!newValue, forKey: "showNormalTitle") }
+        get { !sharedDefaults.bool(forKey: "showNormalTitle") }
+        set { sharedDefaults.set(!newValue, forKey: "showNormalTitle") }
+    }
+    
+    static var scanRating: Bool {
+        get { sharedDefaults.bool(forKey: "scanRating") }
+        set { sharedDefaults.set(newValue, forKey: "scanRating") }
     }
     
     static let markA = UIColor(named: "markA")!
@@ -90,7 +113,7 @@ class DataManager {
     static let markC = UIColor(named: "markC")!
     static let markD = UIColor(named: "markD")!
     
-    static func getCircleConfig(subject: DataManager.subject) -> (circleColor: UIColor, labelColor: UIColor) {
+    static func getCircleConfig(subject: subject) -> (circleColor: UIColor, labelColor: UIColor) {
         guard subject.maxRate != "0" else {
             return (.systemGray, .white)
         }

@@ -57,6 +57,7 @@ class LoginController: UIViewController {
             if response == .success {
                 self.dismiss(animated: true, completion: nil)
             } else {
+                DataManager.clearPassword()
                 let banner = FloatingNotificationBanner(title: "Ошибка", subtitle: response.rawValue, style: .danger)
                 banner.haptic = .heavy
                 banner.show(queuePosition: .front, bannerPosition: .top, cornerRadius: 10, shadowBlurRadius: 15)

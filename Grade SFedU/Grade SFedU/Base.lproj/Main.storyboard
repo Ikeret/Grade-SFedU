@@ -27,7 +27,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-8b-zSi">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAa-eX-uDN">
                                         <rect key="frame" x="0.0" y="55" width="374" height="34"/>
@@ -83,6 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <gestureRecognizers/>
                         <connections>
                             <outlet property="dataSource" destination="Xvq-Mx-5Bq" id="MFI-O5-i60"/>
                             <outlet property="delegate" destination="Xvq-Mx-5Bq" id="g8E-Y9-ZCu"/>
@@ -115,7 +116,7 @@
         <scene sceneID="Pyb-CO-Kso">
             <objects>
                 <tableViewController id="Lvx-fb-GlG" customClass="SettingsController" customModule="Grade_SFedU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Im4-sD-HCy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Im4-sD-HCy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -152,7 +153,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Если включено, будет отображаться заданное название дисциплины вместо обычного." id="LkD-6A-OUq">
+                            <tableViewSection footerTitle="Отображение заданного названия дисциплины вместо официального, если вы его указали." id="LkD-6A-OUq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1sb-3X-S8X">
                                         <rect key="frame" x="0.0" y="163" width="414" height="43.5"/>
@@ -184,10 +185,43 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Вся информация, отображаемая в приложении взята напрямую из grade.sfedu.ru" id="OTK-st-cQV">
+                            <tableViewSection id="iJX-4a-vkB">
+                                <string key="footerTitle">Включите данный режим и сверните приложение, не закрывая его. Приложение будет проверять каждые 10 минут ваши баллы и пришлет уведомление, если обнаружит изменения. Закрытие приложения приведет к остановке данной функции.</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wzJ-6o-JnJ">
+                                        <rect key="frame" x="0.0" y="270.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzJ-6o-JnJ" id="IE5-7c-7EK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Режим ожидания" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yL2-eS-tKV">
+                                                    <rect key="frame" x="36" y="11.5" width="139" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-VK-S4Q">
+                                                    <rect key="frame" x="349" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="setScan:" destination="Lvx-fb-GlG" eventType="valueChanged" id="Zwe-MS-IuM"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yL2-eS-tKV" firstAttribute="centerY" secondItem="IE5-7c-7EK" secondAttribute="centerY" id="1r4-HA-GPN"/>
+                                                <constraint firstItem="yL2-eS-tKV" firstAttribute="leading" secondItem="IE5-7c-7EK" secondAttribute="leadingMargin" constant="16" id="2dE-hy-kRx"/>
+                                                <constraint firstItem="iCC-VK-S4Q" firstAttribute="centerY" secondItem="IE5-7c-7EK" secondAttribute="centerY" id="3fj-ev-RuO"/>
+                                                <constraint firstAttribute="trailing" secondItem="iCC-VK-S4Q" secondAttribute="trailing" constant="16" id="vOD-8X-V33"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Вся информация, отображаемая в приложении взята напрямую с сайта grade.sfedu.ru" id="OTK-st-cQV">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XqG-vR-rZ2">
-                                        <rect key="frame" x="0.0" y="270.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="426" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XqG-vR-rZ2" id="U5M-Z4-S02">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -199,10 +233,9 @@
                                                         <constraint firstAttribute="height" constant="44" id="AyL-Af-fMM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Выйти из аккаунта"/>
+                                                    <state key="normal" title="Открыть в браузере"/>
                                                     <connections>
-                                                        <action selector="logOut:" destination="Lvx-fb-GlG" eventType="touchUpInside" id="akl-yb-KwO"/>
+                                                        <action selector="openInBrowser" destination="Lvx-fb-GlG" eventType="touchUpInside" id="hZt-pc-Ufd"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -211,6 +244,38 @@
                                                 <constraint firstAttribute="trailing" secondItem="4No-3H-4GL" secondAttribute="trailing" id="6Me-wr-MHO"/>
                                                 <constraint firstItem="4No-3H-4GL" firstAttribute="top" secondItem="U5M-Z4-S02" secondAttribute="top" id="XFb-S8-dHQ"/>
                                                 <constraint firstItem="4No-3H-4GL" firstAttribute="leading" secondItem="U5M-Z4-S02" secondAttribute="leading" id="q2m-4X-rkV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="NZ6-20-rmg">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mzp-JH-kxI">
+                                        <rect key="frame" x="0.0" y="533.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mzp-JH-kxI" id="3uH-MC-QUm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIU-p5-LFi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="9p3-UH-li0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Выйти из аккаунта"/>
+                                                    <connections>
+                                                        <action selector="logOut:" destination="Lvx-fb-GlG" eventType="touchUpInside" id="QAP-CE-HNb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="dIU-p5-LFi" secondAttribute="trailing" id="27c-X6-FcF"/>
+                                                <constraint firstItem="dIU-p5-LFi" firstAttribute="leading" secondItem="3uH-MC-QUm" secondAttribute="leading" id="GaI-Cv-llB"/>
+                                                <constraint firstItem="dIU-p5-LFi" firstAttribute="top" secondItem="3uH-MC-QUm" secondAttribute="top" id="SfC-Gh-SsC"/>
+                                                <constraint firstAttribute="bottom" secondItem="dIU-p5-LFi" secondAttribute="bottom" id="vLl-7W-8mg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -226,6 +291,7 @@
                     <connections>
                         <outlet property="hideSwitcher" destination="0Au-42-Snh" id="5gn-5I-Cps"/>
                         <outlet property="renameSwitcher" destination="cPW-P3-Xoe" id="cZa-Gt-8bi"/>
+                        <outlet property="scanSwitcher" destination="iCC-VK-S4Q" id="KAG-dv-Xgg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zce-PT-KaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -17,7 +17,7 @@ class NetworkManager {
         case success = ""
         case wrongPassword = "Неверный логин и/или пароль. Повторите попытку."
         case noNetworkConnection = "Нет подключения к интернету. Проверьте настройки сети."
-        case unknow = "Неизвестная ошибка. Повторите попытку позже."
+        case connectionTimedOut = "Превышено время ожидания от сервера. Возможно, сайт в настоящее время недоступен."
     }
     
     static func connect(completionHandler: @escaping (LoginStatus) -> Void) {
@@ -28,6 +28,10 @@ class NetworkManager {
         
         guard DataManager.isExpire() else {
             AF.request(basicURL).response { response in
+                if response.error != nil {
+                    completionHandler(.connectionTimedOut)
+                    return
+                }
                 let html = String(data: response.data!, encoding: .utf8)!
                 
                 parseHTML(html: html)
@@ -39,6 +43,12 @@ class NetworkManager {
         let user = DataManager.getUser()
         
         AF.request("https://openid.sfedu.ru/server.php/login", method: .post, parameters: ["openid_url": user.login, "password": user.password], encoder: URLEncodedFormParameterEncoder.default).response { response in
+            
+            if response.error != nil {
+                completionHandler(.connectionTimedOut)
+                return
+            }
+            
             let html = String(data: response.data!, encoding: .utf8)!
             
             
@@ -50,7 +60,10 @@ class NetworkManager {
             }
             
             AF.request(basicURL + "/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { response in
-                
+                if response.error != nil {
+                    completionHandler(.connectionTimedOut)
+                    return
+                }
                 DataManager.expireCookie = Date().timeIntervalSince1970 + 1500
                 
                 let html = String(data: response.data!, encoding: .utf8)!
@@ -74,7 +87,10 @@ class NetworkManager {
         
         let user = DataManager.getUser()
         AF.request("https://openid.sfedu.ru/server.php/login", method: .post, parameters: ["openid_url": user.login, "password": user.password], encoder: URLEncodedFormParameterEncoder.default).response { response in
-            
+            if response.error != nil {
+                completionHandler(.connectionTimedOut)
+                return
+            }
             let html = String(data: response.data!, encoding: .utf8)!
             if let doc = try? HTML(html: html, encoding: .utf8) {
                 if doc.title != "Административный портал ЮФУ" {
@@ -83,7 +99,11 @@ class NetworkManager {
                 }
             }
             
-            AF.request(basicURL + "/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { _ in
+            AF.request(basicURL + "/handler/sign/openidlogin?loginopenid=\(user.login)&user_role=student").response { response in
+                if response.error != nil {
+                    completionHandler(.connectionTimedOut)
+                    return
+                }
                 DataManager.expireCookie = Date().timeIntervalSince1970 + 1500
                 completionHandler(.success)
             }
@@ -129,7 +149,10 @@ class NetworkManager {
     }
     
     static func setSemestr(id: String, completionHandler: @escaping () -> Void) {
-        AF.request("https://grade.sfedu.ru/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { _ in
+        AF.request("https://grade.sfedu.ru/handler/Settings/setSemesterID", method: .post, parameters: ["id": id], encoder: URLEncodedFormParameterEncoder.default).response { response in
+            if response.error != nil {
+                return
+            }
             completionHandler()
         }
     }
@@ -142,7 +165,10 @@ class NetworkManager {
     static func loadDiscipline(discipline: String, completionHandler: @escaping ([DataManager.module]) -> Void) {
         
         AF.request(basicURL + discipline).response { response in
-            
+            if response.error != nil {
+                completionHandler([])
+                return
+            }
             let html = String(data: response.data!, encoding: .utf8)!
             if let doc = try? HTML(html: html, encoding: .utf8) {
                 var moduleTitles = [String]()
